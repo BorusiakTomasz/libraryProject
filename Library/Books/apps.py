@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ApiBasicConfig(AppConfig):
+class BooksConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api_basic'
+    name = 'Books'

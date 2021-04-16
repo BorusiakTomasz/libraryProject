@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
-    'api_basic',
+    'Books',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +80,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'books',
+    #    'USER': 'postgres',
+    #    'PASSWORD': 'zaq1@WSX',
+    #    'HOST': 'localhost',
+    #    'PORT': '5432',
+    #}
 }
 
 
