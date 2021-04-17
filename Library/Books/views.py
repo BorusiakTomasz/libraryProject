@@ -25,7 +25,6 @@ class ArticleList(APIView):
 
 
 class ArticleDetails(APIView):
-    @staticmethod
     def get_object(self, id=None):
         try:
             return Article.objects.get(id=id)
