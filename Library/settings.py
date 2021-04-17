@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'Library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'zaq1@WSX',
+        'NAME': os.environ.get('BOOKS_REST_API_DB_NAME'),
+        'USER': os.environ.get('BOOKS_REST_API_DB_USER'),
+        'PASSWORD': os.environ.get('BOOKS_REST_API_DB_PASS'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
