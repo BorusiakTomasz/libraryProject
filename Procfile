@@ -1,1 +1,1 @@
-web: gunicorn Library.wsgi
+web: gunicorn django_project.wsgi
