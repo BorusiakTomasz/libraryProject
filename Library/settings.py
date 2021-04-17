@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zgoqz8#dwrisj8d9yfe+4h201o0sbeubo4$2z#5qa0b42sy2v2'
+SECRET_KEY = os.environ.get('BOOKS_REST_API_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('BOOKS_REST_API_DEBUG') == 'True')
 
 ALLOWED_HOSTS = ['djangobooksrestapi.herokuapp.com']
 
