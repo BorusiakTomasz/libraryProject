@@ -2,23 +2,21 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import Book
-from .serializers import BookSerializer
-
-IMPORT_URL = 'https://www.googleapis.com/books/v1/volumes?q=war'
+from .models import Article
+from .serializers import ArticleSerializer
 
 
 # Create your views here.
 
 
-class BookList(APIView):
+class ArticleList(APIView):
     def get(self, request):
-        articles = Book.objects.all()
-        serializer = BookSerializer(articles, many=True)
+        articles = Article.objects.all()
+        serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = BookSerializer(data=request.data)
+        serializer = ArticleSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -26,22 +24,22 @@ class BookList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class BookDetails(APIView):
+class ArticleDetails(APIView):
     def get_object(self, id=None):
         try:
-            return Book.objects.get(id=id)
+            return Article.objects.get(id=id)
 
-        except Book.DoesNotExist:
+        except Article.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, id=None):
         article = self.get_object(id)
-        serializer = BookSerializer(article)
+        serializer = ArticleSerializer(article)
         return Response(serializer.data)
 
     def put(self, request, id=None):
         article = self.get_object(id)
-        serializer = BookSerializer(article, data=request.data)
+        serializer = ArticleSerializer(article, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
